@@ -3,84 +3,717 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Website</title>
+    <title>Your Name - PhD Candidate</title>
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            height: 100vh;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .left-column {
-            width: 30%;
-            background-color: #f5f5f5;
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            gap: 30px;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            flex: 0 0 320px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            border: 6px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-name {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .profile-title {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-icon.scholar {
+            background: linear-gradient(45deg, #4285f4, #34a853);
+        }
+
+        .social-icon.linkedin {
+            background: linear-gradient(45deg, #0077b5, #00a0dc);
+        }
+
+        .social-icon.github {
+            background: linear-gradient(45deg, #333, #666);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 8px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #667eea;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(5px);
+            color: #5a67d8;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 30px;
         }
-        .left-column img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid #555;
-        }
-        .left-column a {
-            display: block;
-            margin: 10px 0;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .left-column a:hover {
-            color: #0077b5; /* LinkedIn blue */
-        }
-        .right-column {
-            width: 70%;
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 40px;
-            background-color: #ffffff;
-            overflow-y: auto;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
-        .work-section {
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 2em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .research-item, .education-item, .experience-item {
             margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
         }
-        .work-section h2 {
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
+
+        .research-item:hover, .education-item:hover, .experience-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .item-subtitle {
+            color: #667eea;
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .item-date {
+            color: #888;
+            font-size: 0.95em;
             margin-bottom: 15px;
         }
-        .work-section p {
-            line-height: 1.6;
+
+        .item-description {
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: rgba(102, 126, 234, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-category:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: scale(1.05);
+            border-color: rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .skill-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .contact-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: #667eea;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .contact-info p {
+            color: #666;
+            margin: 0;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            left: 5%;
+            top: 20%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            right: 10%;
+            top: 60%;
+            animation-delay: 3s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            left: 70%;
+            top: 30%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.6; }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            
+            .sidebar {
+                flex: none;
+                position: relative;
+                top: 0;
+                margin-bottom: 20px;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+                font-size: 48px;
+            }
+            
+            .profile-name {
+                font-size: 1.5em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.6em;
+            }
+            
+            .skills-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="left-column">
-        <img src="your-photo.jpg" alt="Your Photo">
-        <a href="www.linkedin.com/in/krsaxena" target="_blank">LinkedIn</a>
-        <a href="https://scholar.google.com/citations?user=ngoJ38YAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
     </div>
-    <div class="right-column">
-        <div class="work-section">
-            <h2>About Me</h2>
-            <p>Edit this section to write about yourself, your background, and your interests.</p>
-        </div>
-        <div class="work-section">
-            <h2>Projects</h2>
-            <p>List your major projects here. You can add links, descriptions, and outcomes.</p>
-        </div>
-        <div class="work-section">
-            <h2>Publications</h2>
-            <p>Include details about your publications, papers, or articles.</p>
-        </div>
-        <div class="work-section">
-            <h2>Contact</h2>
-            <p>Provide your contact information or a way for visitors to reach out.</p>
-        </div>
+
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img">
+                    👨‍🎓
+                    <!-- Replace with: <img src="your-photo.jpg" alt="Your Name"> -->
+                </div>
+                <h1 class="profile-name">Your Name</h1>
+                <p class="profile-title">PhD Candidate<br>IIT Kanpur</p>
+            </div>
+
+            <div class="social-icons">
+                <a href="https://scholar.google.com/citations?user=YOUR_ID" class="social-icon scholar" target="_blank" title="Google Scholar">
+                    🎓
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="social-icon linkedin" target="_blank" title="LinkedIn">
+                    💼
+                </a>
+                <a href="https://github.com/yourusername" class="social-icon github" target="_blank" title="GitHub">
+                    💻
+                </a>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">📋 About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#research" class="nav-link">🔬 Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#education" class="nav-link">🎓 Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#publications" class="nav-link">📄 Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#skills" class="nav-link">🛠️ Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">📞 Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cv" class="nav-link">📄 CV</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="section" id="about">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">
+                    Welcome! I am a PhD candidate in the Department of [Your Department] at IIT Kanpur, working under the guidance of Prof. [Advisor Name]. My research focuses on [Your Research Area], with particular emphasis on [Specific Focus].
+                </p>
+                <p class="about-text">
+                    I am passionate about advancing knowledge in [Your Field] through innovative approaches that combine theoretical insights with practical applications. My work aims to address critical challenges in [Problem Area] and contribute to the broader scientific community.
+                </p>
+                <p class="about-text">
+                    Prior to joining IIT Kanpur, I completed my [Previous Degree] from [Previous Institution], where I developed a strong foundation in [Relevant Skills/Knowledge]. I am always eager to collaborate on exciting research projects and explore new frontiers in [Your Field].
+                </p>
+            </section>
+
+            <section class="section" id="research">
+                <h2 class="section-title">Research</h2>
+                <div class="research-item">
+                    <div class="item-title">Doctoral Research</div>
+                    <div class="item-subtitle">Primary Research Focus</div>
+                    <div class="item-date">2021 - Present</div>
+                    <div class="item-description">
+                        Detailed description of your PhD research project. Explain the problem you're solving, your methodology, and the significance of your work. Include any novel approaches, algorithms, or frameworks you've developed.
+                    </div>
+                </div>
+                <div class="research-item">
+                    <div class="item-title">Collaborative Project</div>
+                    <div class="item-subtitle">Inter-disciplinary Research</div>
+                    <div class="item-date">2022 - Present</div>
+                    <div class="item-description">
+                        Description of any collaborative research projects with other departments, institutions, or industry partners. Highlight your specific contributions and the project's broader impact.
+                    </div>
+                </div>
+                <div class="research-item">
+                    <div class="item-title">Side Projects</div>
+                    <div class="item-subtitle">Exploratory Research</div>
+                    <div class="item-date">Ongoing</div>
+                    <div class="item-description">
+                        Overview of additional research interests and side projects that complement your main research. These could include pilot studies, theoretical explorations, or application developments.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="education">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="item-title">PhD in [Your Field]</div>
+                    <div class="item-subtitle">Indian Institute of Technology Kanpur</div>
+                    <div class="item-date">2021 - Present (Expected 2025)</div>
+                    <div class="item-description">
+                        <strong>Advisor:</strong> Prof. [Advisor Name]<br>
+                        <strong>Thesis:</strong> "[Your Thesis Title]"<br>
+                        <strong>Coursework:</strong> Advanced topics in [relevant courses], Research Methodology, [Other relevant courses]
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-title">Master of Technology/Science</div>
+                    <div class="item-subtitle">University Name</div>
+                    <div class="item-date">Year - Year</div>
+                    <div class="item-description">
+                        <strong>Specialization:</strong> [Your Specialization]<br>
+                        <strong>CGPA:</strong> X.X/10.0<br>
+                        <strong>Thesis:</strong> [Master's thesis title and brief description]
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-title">Bachelor of Technology/Engineering</div>
+                    <div class="item-subtitle">University Name</div>
+                    <div class="item-date">Year - Year</div>
+                    <div class="item-description">
+                        <strong>Major:</strong> [Your Major]<br>
+                        <strong>CGPA:</strong> X.X/10.0<br>
+                        <strong>Achievements:</strong> [Any notable achievements, honors, or distinctions]
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="publications">
+                <h2 class="section-title">Publications & Presentations</h2>
+                <div class="research-item">
+                    <div class="item-title">Journal Article Title</div>
+                    <div class="item-subtitle">Journal Name, Volume(Issue), Pages, Year</div>
+                    <div class="item-date">Authors: Your Name, Co-author 1, Co-author 2</div>
+                    <div class="item-description">
+                        Brief abstract or summary of your published work. Include key findings, methodology, and impact. Add DOI or link if available.
+                    </div>
+                </div>
+                <div class="research-item">
+                    <div class="item-title">Conference Paper</div>
+                    <div class="item-subtitle">Conference Name, Location, Year</div>
+                    <div class="item-date">Presentation Type: Oral/Poster</div>
+                    <div class="item-description">
+                        Description of your conference presentation, including the research contribution and reception from the academic community.
+                    </div>
+                </div>
+                <div class="research-item">
+                    <div class="item-title">Manuscripts Under Review</div>
+                    <div class="item-subtitle">Journal/Conference Name</div>
+                    <div class="item-date">Status: Under Review/In Preparation</div>
+                    <div class="item-description">
+                        Overview of work currently under review or in preparation for submission. Include expected timeline and significance.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="skills">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <span class="skill-icon">💻</span>
+                        <div class="skill-title">Programming Languages</div>
+                        <p>Python, R, MATLAB, C++, Java, JavaScript</p>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-icon">📊</span>
+                        <div class="skill-title">Data Science & ML</div>
+                        <p>TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy</p>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-icon">🔧</span>
+                        <div class="skill-title">Tools & Frameworks</div>
+                        <p>Git, Docker, Linux, LaTeX, Jupyter, VS Code</p>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-icon">🧪</span>
+                        <div class="skill-title">Research Methods</div>
+                        <p>Statistical Analysis, Experimental Design, Literature Review</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="contact">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-info">
+                            <h4>Email</h4>
+                            <p>your.email@iitk.ac.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🏢</div>
+                        <div class="contact-info">
+                            <h4>Office</h4>
+                            <p>Room No., Department Building<br>IIT Kanpur, UP 208016</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-info">
+                            <h4>Phone</h4>
+                            <p>+91-XXXXXXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🔬</div>
+                        <div class="contact-info">
+                            <h4>Research Group</h4>
+                            <p>[Lab/Group Name]<br>Prof. [Advisor Name]</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="cv">
+                <h2 class="section-title">Curriculum Vitae</h2>
+                <p class="about-text">
+                    You can download my complete CV using the link below. The CV includes detailed information about my research experience, publications, technical skills, and academic achievements.
+                </p>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="path/to/your-cv.pdf" style="display: inline-block; padding: 15px 30px; background: linear-gradient(45deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);" target="_blank">
+                        📄 Download CV (PDF)
+                    </a>
+                </div>
+            </section>
+        </main>
     </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+
+        function highlightActiveSection() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightActiveSection);
+
+        // Intersection Observer for section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+
+        // Hover effects for social icons
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.15) rotate(5deg)';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+            });
+        });
+    </script>
 </body>
 </html>
