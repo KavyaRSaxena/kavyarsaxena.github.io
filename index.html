@@ -1,247 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - PhD Candidate</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhD Student Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-    </div>
+  <header>
+    <h1>Dr. Alex Taylor</h1>
+    <p>PhD Candidate in Computer Science</p>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-section">
-                <div class="profile-img">
-                    <img src="images/kavya_ranjan_saxena.jpg" alt="kavya_ranjan_saxena">
-                </div>
-                <h1 class="profile-name">Your Name</h1>
-                <p class="profile-title">PhD Candidate<br>IIT Kanpur</p>
-            </div>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a PhD student at XYZ University, specializing in Machine Learning and Natural Language Processing.
+        My research focuses on building interpretable AI models that align with human cognition.
+      </p>
+    </section>
 
-            <div class="social-icons">
-                <a href="https://scholar.google.com/citations?user=YOUR_ID" class="social-icon scholar" target="_blank" title="Google Scholar">
-                    GS
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" class="social-icon linkedin" target="_blank" title="LinkedIn">
-                    in
-                </a>
-                <a href="https://github.com/yourusername" class="social-icon github" target="_blank" title="GitHub">
-                    </>
-                </a>
-            </div>
+    <section id="cv">
+      <h2>Curriculum Vitae</h2>
+      <p>
+        You can download my CV here:
+        <a href="cv.pdf" download target="_blank">Download CV (PDF)</a>
+      </p>
+    </section>
 
-            <nav>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">📋 About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#research" class="nav-link">🔬 Research</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#education" class="nav-link">🎓 Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#publications" class="nav-link">📄 Publications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#skills" class="nav-link">🛠️ Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">📞 Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#cv" class="nav-link">📄 CV</a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:alex.taylor@xyz.edu">alex.taylor@xyz.edu</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/alextaylor" target="_blank">linkedin.com/in/alextaylor</a></p>
+    </section>
+  </main>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <section class="section" id="about">
-                <h2 class="section-title">About Me</h2>
-                <p class="about-text">
-                    Welcome! I am a PhD candidate in the Department of [Your Department] at IIT Kanpur, working under the guidance of Prof. [Advisor Name]. My research focuses on [Your Research Area], with particular emphasis on [Specific Focus].
-                </p>
-                <p class="about-text">
-                    I am passionate about advancing knowledge in [Your Field] through innovative approaches that combine theoretical insights with practical applications. My work aims to address critical challenges in [Problem Area] and contribute to the broader scientific community.
-                </p>
-                <p class="about-text">
-                    Prior to joining IIT Kanpur, I completed my [Previous Degree] from [Previous Institution], where I developed a strong foundation in [Relevant Skills/Knowledge]. I am always eager to collaborate on exciting research projects and explore new frontiers in [Your Field].
-                </p>
-            </section>
+  <footer>
+    <p>&copy; 2025 Alex Taylor. All rights reserved.</p>
+  </footer>
 
-            <section class="section" id="research">
-                <h2 class="section-title">Research</h2>
-                <div class="research-item">
-                    <div class="item-title">Doctoral Research</div>
-                    <div class="item-subtitle">Primary Research Focus</div>
-                    <div class="item-date">2021 - Present</div>
-                    <div class="item-description">
-                        Detailed description of your PhD research project. Explain the problem you're solving, your methodology, and the significance of your work. Include any novel approaches, algorithms, or frameworks you've developed.
-                    </div>
-                </div>
-                <div class="research-item">
-                    <div class="item-title">Collaborative Project</div>
-                    <div class="item-subtitle">Inter-disciplinary Research</div>
-                    <div class="item-date">2022 - Present</div>
-                    <div class="item-description">
-                        Description of any collaborative research projects with other departments, institutions, or industry partners. Highlight your specific contributions and the project's broader impact.
-                    </div>
-                </div>
-                <div class="research-item">
-                    <div class="item-title">Side Projects</div>
-                    <div class="item-subtitle">Exploratory Research</div>
-                    <div class="item-date">Ongoing</div>
-                    <div class="item-description">
-                        Overview of additional research interests and side projects that complement your main research. These could include pilot studies, theoretical explorations, or application developments.
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="education">
-                <h2 class="section-title">Education</h2>
-                <div class="education-item">
-                    <div class="item-title">PhD in [Your Field]</div>
-                    <div class="item-subtitle">Indian Institute of Technology Kanpur</div>
-                    <div class="item-date">2021 - Present (Expected 2025)</div>
-                    <div class="item-description">
-                        <strong>Advisor:</strong> Prof. [Advisor Name]<br>
-                        <strong>Thesis:</strong> "[Your Thesis Title]"<br>
-                        <strong>Coursework:</strong> Advanced topics in [relevant courses], Research Methodology, [Other relevant courses]
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="item-title">Master of Technology/Science</div>
-                    <div class="item-subtitle">University Name</div>
-                    <div class="item-date">Year - Year</div>
-                    <div class="item-description">
-                        <strong>Specialization:</strong> [Your Specialization]<br>
-                        <strong>CGPA:</strong> X.X/10.0<br>
-                        <strong>Thesis:</strong> [Master's thesis title and brief description]
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="item-title">Bachelor of Technology/Engineering</div>
-                    <div class="item-subtitle">University Name</div>
-                    <div class="item-date">Year - Year</div>
-                    <div class="item-description">
-                        <strong>Major:</strong> [Your Major]<br>
-                        <strong>CGPA:</strong> X.X/10.0<br>
-                        <strong>Achievements:</strong> [Any notable achievements, honors, or distinctions]
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="publications">
-                <h2 class="section-title">Publications & Presentations</h2>
-                <div class="research-item">
-                    <div class="item-title">Journal Article Title</div>
-                    <div class="item-subtitle">Journal Name, Volume(Issue), Pages, Year</div>
-                    <div class="item-date">Authors: Your Name, Co-author 1, Co-author 2</div>
-                    <div class="item-description">
-                        Brief abstract or summary of your published work. Include key findings, methodology, and impact. Add DOI or link if available.
-                    </div>
-                </div>
-                <div class="research-item">
-                    <div class="item-title">Conference Paper</div>
-                    <div class="item-subtitle">Conference Name, Location, Year</div>
-                    <div class="item-date">Presentation Type: Oral/Poster</div>
-                    <div class="item-description">
-                        Description of your conference presentation, including the research contribution and reception from the academic community.
-                    </div>
-                </div>
-                <div class="research-item">
-                    <div class="item-title">Manuscripts Under Review</div>
-                    <div class="item-subtitle">Journal/Conference Name</div>
-                    <div class="item-date">Status: Under Review/In Preparation</div>
-                    <div class="item-description">
-                        Overview of work currently under review or in preparation for submission. Include expected timeline and significance.
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="skills">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <span class="skill-icon">💻</span>
-                        <div class="skill-title">Programming Languages</div>
-                        <p>Python, R, MATLAB, C++, Java, JavaScript</p>
-                    </div>
-                    <div class="skill-category">
-                        <span class="skill-icon">📊</span>
-                        <div class="skill-title">Data Science & ML</div>
-                        <p>TensorFlow, PyTorch, Scikit-learn, Pandas, NumPy</p>
-                    </div>
-                    <div class="skill-category">
-                        <span class="skill-icon">🔧</span>
-                        <div class="skill-title">Tools & Frameworks</div>
-                        <p>Git, Docker, Linux, LaTeX, Jupyter, VS Code</p>
-                    </div>
-                    <div class="skill-category">
-                        <span class="skill-icon">🧪</span>
-                        <div class="skill-title">Research Methods</div>
-                        <p>Statistical Analysis, Experimental Design, Literature Review</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="contact">
-                <h2 class="section-title">Contact Information</h2>
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-info">
-                            <h4>Email</h4>
-                            <p>your.email@iitk.ac.in</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🏢</div>
-                        <div class="contact-info">
-                            <h4>Office</h4>
-                            <p>Room No., Department Building<br>IIT Kanpur, UP 208016</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-info">
-                            <h4>Phone</h4>
-                            <p>+91-XXXXXXXXXX</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">🔬</div>
-                        <div class="contact-info">
-                            <h4>Research Group</h4>
-                            <p>[Lab/Group Name]<br>Prof. [Advisor Name]</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="cv">
-                <h2 class="section-title">Curriculum Vitae</h2>
-                <p class="about-text">
-                    You can download my complete CV using the link below. The CV includes detailed information about my research experience, publications, technical skills, and academic achievements.
-                </p>
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="path/to/your-cv.pdf" style="display: inline-block; padding: 15px 30px; background: linear-gradient(45deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);" target="_blank">
-                        📄 Download CV (PDF)
-                    </a>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
