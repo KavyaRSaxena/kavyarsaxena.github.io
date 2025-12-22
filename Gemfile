@@ -36,3 +36,6 @@ group :other_plugins do
     # gem 'unicode_utils' -- should be already installed by jekyll
     # gem 'webrick' -- should be already installed by jekyll
 end
+
+gem 'jekyll-sass-converter', '~> 3.0'
+gem 'sass-embedded'
