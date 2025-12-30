@@ -30,11 +30,11 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-tcp",
+        },{id: "post-understanding-true-class-probability-for-reliable-predictions",
         
-          title: "Tcp",
+          title: "Understanding True Class Probability for Reliable Predictions",
         
-        description: "",
+        description: "Mathematical formulation and theory of TCP.",
         section: "Posts",
         handler: () => {
           
