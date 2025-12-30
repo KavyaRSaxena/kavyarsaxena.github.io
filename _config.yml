@@ -172,6 +172,18 @@ kramdown:
       line_numbers: false
       start_line: 1
 
+# markdown: kramdown
+# kramdown:
+#   input: GFM
+#   math_engine: mathjax
+#   syntax_highlighter_opts:
+#     block:
+#       line_numbers: false
+#     span:
+#       line_numbers: false
+
+
+
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
